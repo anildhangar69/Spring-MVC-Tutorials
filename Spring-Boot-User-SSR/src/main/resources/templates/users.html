@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+<h1>User Registration</h1>
+<form th:action="@{/users}" method="post">
+    <div>
+        First Name: <input type="text" name="firstName" th:value="${user.firstName}"/>
+    </div>
+    <div>
+        Last Name: <input type="text" name="lastName" th:value="${user.lastName}"/>
+    </div>
+    <div>
+        Age: <input type="number" name="age" th:value="${user.age}"/>
+    </div>
+    <div>
+        Mobile Number: <input type="text" name="mobileNumber" th:value="${user.mobileNumber}"/>
+    </div>
+    <div>
+        Email: <input type="email" name="email" th:value="${user.email}"/>
+    </div>
+    <div>
+        Address: <input type="text" name="address" th:value="${user.address}"/>
+    </div>
+    <button type="submit">Save</button>
+</form>
+<h2>All Users</h2>
+<table border="1">
+    <tr>
+        <th>ID</th><th>First Name</th><th>Last Name</th><th>Age</th><th>Mobile</th><th>Email</th><th>Address</th>
+    </tr>
+    <tr th:each="u : ${users}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.firstName}"></td>
+        <td th:text="${u.lastName}"></td>
+        <td th:text="${u.age}"></td>
+        <td th:text="${u.mobileNumber}"></td>
+        <td th:text="${u.email}"></td>
+        <td th:text="${u.address}"></td>
+    </tr>
+</table>
+</body>
+</html>
